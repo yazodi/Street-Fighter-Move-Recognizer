@@ -1,0 +1,65 @@
+✅ Proje Özeti: Street Fighter Move Recognizer
+🎯 Amaç:
+Joystick hareketlerine (örneğin: ⬇️➡️🅱️ gibi) bakarak oyuncunun hangi “özel hareketi” (Hadouken, Shoryuken vb.) yapmak istediğini tahmin eden bir model oluşturmak.
+
+💡 Neden Özel?
+Gerçek zamanlı joystick verilerini taklit ederek çalışır.
+
+Sekans verisiyle çalışmak (zaman sıralı girişler).
+
+Oyun zekâsı gibi davranmak: Oyuncu hangi hareketi yapıyor?
+
+🛠️ Teknik Yaklaşım:
+Aşama	Açıklama
+1. Veri Üretimi / Toplama	Simüle joystick sekansları (örnek: ['DOWN', 'RIGHT', 'PUNCH']) ve bunların karşılığı özel hareket etiketi (Hadouken)
+2. Veri İşleme	Her combo bir sekans (sequence), veri X = ["DOWN", "RIGHT", "PUNCH"], y = "Hadouken" gibi olur
+3. Modelleme	
+Seçenek 1: LSTM / GRU (sekans modelleme için)	
+Seçenek 2: 1D CNN (daha hızlı sonuçlar verir)	
+Seçenek 3: HMM (Hidden Markov Model, klasik çözüm)	
+4. Model Eğitimi	%80 eğitim, %20 test — sınıflandırma problemi
+5. Değerlendirme	Accuracy, confusion matrix ile
+6. Model Kaydı	model.pkl veya .keras olarak
+7. Streamlit Uygulaması	Kullanıcıdan joystick sekansı al → model tahminini göster
+8. Hugging Face	config.json, README.md, model.pkl / .keras, sample_input.json
+9. GitHub	Notebook + app + model + README ile tam repo
+
+
+
+
+
+
+
+
+
+
+
+📁 Örnek Combo Dataset (Simülasyon)
+Joystick Sequence	Move
+["DOWN", "RIGHT", "PUNCH"]	Hadouken
+["RIGHT", "DOWN", "RIGHT", "KICK"]	Shoryuken
+["LEFT", "LEFT", "PUNCH"]	Dash Punch
+["DOWN", "KICK"]	Low Kick
+
+Toplam 5–10 özel hareket tanımıyla başlamak yeterli.
+
+
+
+
+
+
+
+✅ Evet, Yapabiliriz:
+✔ Model eğitimi (LSTM / CNN)
+
+✔ Streamlit arayüz (combo tuşları seçtir → tahmini göster)
+
+✔ Hugging Face'e yükleme
+
+✔ GitHub'da paylaşım
+
+
+
+
+
+
